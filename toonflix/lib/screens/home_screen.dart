@@ -48,6 +48,23 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void onTickResetPressed() {
+    setState(() {
+      timer.cancel();
+      isRunning = false;
+      totalSeconds = twentyFiveMinutes;
+    });
+  }
+
+  void onPomodorosResetPressed() {
+    setState(() {
+      timer.cancel();
+      totalPomodoros = 0;
+      isRunning = false;
+      totalSeconds = twentyFiveMinutes;
+    });
+  }
+
   String format(int seconds) {
     var duration = Duration(seconds: seconds);
     return duration.toString().split(".").first.substring(2, 7);
@@ -75,17 +92,31 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Flexible(
             flex: 3,
-            child: Center(
-              child: IconButton(
-                iconSize: 120,
-                color: Theme.of(context).cardColor,
-                onPressed: isRunning ? onPausePressed : onStartPressed,
-                icon: Icon(
-                  isRunning
-                      ? Icons.pause_circle_rounded
-                      : Icons.play_circle_outline,
+            child: Column(
+              children: [
+                Center(
+                  child: IconButton(
+                    iconSize: 120,
+                    color: Theme.of(context).cardColor,
+                    onPressed: isRunning ? onPausePressed : onStartPressed,
+                    icon: Icon(
+                      isRunning
+                          ? Icons.pause_circle_rounded
+                          : Icons.play_circle_outline,
+                    ),
+                  ),
                 ),
-              ),
+                Center(
+                  child: IconButton(
+                    iconSize: 25,
+                    color: Theme.of(context).cardColor,
+                    onPressed: onTickResetPressed,
+                    icon: Icon(
+                      Icons.refresh_outlined,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Flexible(
@@ -120,6 +151,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             color:
                                 Theme.of(context).textTheme.displayLarge!.color,
                             fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Center(
+                          child: IconButton(
+                            iconSize: 20,
+                            color:
+                                Theme.of(context).textTheme.displayLarge!.color,
+                            onPressed: onPomodorosResetPressed,
+                            icon: Icon(
+                              Icons.refresh_outlined,
+                            ),
                           ),
                         ),
                       ],
