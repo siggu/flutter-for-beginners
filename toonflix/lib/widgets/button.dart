@@ -16,18 +16,18 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF1F2123),
+        color: bgColor,
         borderRadius: BorderRadius.circular(45),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: 20,
           horizontal: 50,
         ),
         child: Text(
-          'Request',
+          text,
           style: TextStyle(
-            color: Colors.white,
+            color: textColor,
             fontSize: 20,
           ),
         ),
