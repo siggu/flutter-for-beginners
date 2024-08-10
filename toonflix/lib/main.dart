@@ -1,46 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/screens/home_screen.dart';
 
 void main() {
   runApp(App());
 }
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
   @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        textTheme: TextTheme(
-          titleLarge: TextStyle(
-            color: Colors.red,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch(
+            backgroundColor: const Color(0xFFE7626C),
           ),
-        ),
-      ),
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF4EDDB),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MyLargeTitle(),
-            ],
+          textTheme: const TextTheme(
+            displayLarge: TextStyle(
+              color: Color(0xFF232B55),
+            ),
           ),
+          cardColor: const Color(0xFFF4EDDB),
         ),
-      ),
-    );
+        home: HomeScreen());
   }
 }
 
-class MyLargeTitle extends StatelessWidget {
+class MyLargeTitle extends StatefulWidget {
   const MyLargeTitle({
     super.key,
   });
+
+  @override
+  State<MyLargeTitle> createState() => _MyLargeTitleState();
+}
+
+class _MyLargeTitleState extends State<MyLargeTitle> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
