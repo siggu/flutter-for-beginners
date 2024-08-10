@@ -21,7 +21,7 @@ class App extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 80,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -33,7 +33,7 @@ class App extends StatelessWidget {
                         'Hey, Selena',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 28,
+                          fontSize: 22,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
@@ -41,7 +41,7 @@ class App extends StatelessWidget {
                         'Welcome back',
                         style: TextStyle(
                           color: Color.fromRGBO(255, 255, 255, 0.8),
-                          fontSize: 18,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -49,12 +49,12 @@ class App extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 120,
+                height: 50,
               ),
               Text(
                 'Total Balance',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   color: Colors.white.withOpacity(0.8),
                 ),
               ),
@@ -64,7 +64,7 @@ class App extends StatelessWidget {
               Text(
                 '\$5 194 482',
                 style: TextStyle(
-                  fontSize: 48,
+                  fontSize: 44,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
@@ -86,7 +86,102 @@ class App extends StatelessWidget {
                     textColor: Colors.white,
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Wallets',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    'View All',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(
+                        0.8,
+                      ),
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                  color: Color(0xFF1F2123),
+                  borderRadius: BorderRadius.circular(
+                    20,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(
+                    20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Euro',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                '6 428',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'EUR',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      Transform.scale(
+                        scale: 2.3,
+                        child: Transform.translate(
+                          offset: Offset(5, 10),
+                          child: Icon(
+                            Icons.euro_rounded,
+                            color: Colors.white,
+                            size: 80,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
