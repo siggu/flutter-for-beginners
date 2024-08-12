@@ -30,6 +30,8 @@ class Episode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: onButtonTap,
       child: Container(
@@ -60,13 +62,36 @@ class Episode extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                episode.title,
-                style: TextStyle(
-                  color: Colors.green.shade400,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
+              Row(
+                children: [
+                  Hero(
+                    tag: episode.id,
+                    child: Container(
+                      width: 100,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.network(episode.thumb),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  SizedBox(
+                    width: screenWidth * 0.45,
+                    child: Text(
+                      episode.title,
+                      style: TextStyle(
+                        color: Colors.green.shade400,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
               ),
               Icon(
                 Icons.chevron_right_rounded,
