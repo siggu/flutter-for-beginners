@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_detail_model.dart';
 import 'package:toonflix/models/wetboon_episode_model.dart';
 import 'package:toonflix/services/api_service.dart';
+import 'package:toonflix/widgets/episode_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatefulWidget {
   final String title, thumb, id;
@@ -119,50 +121,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         for (var episode in snapshot.data!.length > 10
                             ? snapshot.data!.sublist(0, 10)
                             : snapshot.data!)
-                          Container(
-                            margin: EdgeInsets.only(
-                              bottom: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 2,
-                                  offset: Offset(3, 3),
-                                  color: Colors.black.withOpacity(0.2),
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(
-                                10,
-                              ),
-                              border: Border.all(
-                                color: Colors.green.shade400,
-                              ),
-                              color: Colors.white,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 20,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    episode.title,
-                                    style: TextStyle(
-                                      color: Colors.green.shade400,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.chevron_right_rounded,
-                                    color: Colors.green.shade400,
-                                  ),
-                                ],
-                              ),
-                            ),
+                          Episode(
+                            episode: episode,
+                            webtoonId: widget.id,
                           ),
                       ],
                     );
